@@ -27,7 +27,6 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   
-  config.include PayIt::Matchers
   config.include FactoryGirl::Syntax::Methods  
   
   config.before(:suite) do
@@ -42,7 +41,6 @@ RSpec.configure do |config|
   config.after(:each) do |x|
     title = x.metadata[:full_description]
     source = x.metadata[:block].source_location.join ":"
-    before_count = Role.all.size
     DatabaseCleaner.clean
   end 
 
